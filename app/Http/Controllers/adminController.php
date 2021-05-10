@@ -9,6 +9,8 @@ use PhpParser\Node\Expr\FuncCall;
 
 class adminController extends Controller
 {
+    protected $url = 'https://thcntt3-982e7-default-rtdb.firebaseio.com/';
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -30,7 +32,7 @@ class adminController extends Controller
         $location=$request->input('location');//gắn request location
         $route=$request->input('route');//gắn request route
         $factory = (new Factory())
-        ->withDatabaseUri('https://demohung-79e75-default-rtdb.firebaseio.com');    
+        ->withDatabaseUri($this->url);    
         $database   =   $factory->createDatabase(); 
         $updates = [
             "$userHome/$location/$route/status"=> "OFF",

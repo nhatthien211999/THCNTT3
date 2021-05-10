@@ -13,17 +13,17 @@
         <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
-            Chỉnh sửa đèn <span id="vitri"></span> ở khu <span id="khuvuc"></span>
+            Chỉnh sửa <span id="vitri"></span> ở khu <span id="khuvuc"></span>
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>thời gian bật</label>
+            <label>Thời gian bật</label>
             <input type="text" id="timeOn" >
           </div>
           <div class="form-group">
-            <label>thời gian tắt</label>
+            <label>Thời gian tắt</label>
             <input type="text" id="timeOff" >
           </div>
         </div>
@@ -77,9 +77,9 @@
               if (value1) {
                   var switc;
                   if (value1.status == 'ON') {
-                      switc = 'Tắt đèn';
+                      switc = 'Tắt';
                   } else {
-                      switc = 'bật đèn';
+                      switc = 'Bật';
                   }
                   var color = null;
                   if (value1.status == 'ON') {
@@ -90,7 +90,7 @@
                   console.log(color);
                   htmls.push('<tr ' + color + '>\
                   <td data-id="' + index1 + '" class="light">' + index1 + '</td>\
-                  <td class="Light"> đèn ' + index1 + '</td>\
+                  <td class="Light">  ' + index1 + '</td>\
                   <td id="' + index + index1 + '">' + value1.status + '</td>\
                   <td class="schedule">' + value1.TimeOn + '</td>\
                   <td class="schedule">' + value1.TimeOff + '</td>\
@@ -109,15 +109,15 @@
   function headTable(NameTable) {
       console.log(NameTable);
       return '<h3>Tên khu vực ' + NameTable + '</h3>\
-      <button class="btn btn-secondary" onclick=(addlight(' +"'"+NameTable+"'"+ '))> thêm đèn </button>\
+      <button class="btn btn-secondary" onclick=(addlight(' +"'"+NameTable+"'"+ '))> thêm ứng dụng </button>\
       <table class="table table-striped">\
       <thead>\
         <tr>\
           <th>stt</th>\
-          <th>tên đèn</th>\
+          <th>tên ứng dụng</th>\
           <th>trạng thái</th>\
-          <th>lịch bật đèn</th>\
-          <th>lịch tắt đèn</th>\
+          <th>lịch bật ứng dụng</th>\
+          <th>lịch tắt ứng dụng</th>\
           <th></th>\
           </tr>\
         </thead>\

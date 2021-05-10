@@ -36,7 +36,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý nhà:</h6>
-                <a class="collapse-item" href="/firebase/view">Đèn</a>
+                <a class="collapse-item" href="/firebase/view">Hệ thống tưới cây</a>
                 <a class="collapse-item" href="cards.html">Camere</a>
                 <a class="collapse-item" href="cards.html">Cháy</a>
                 <a class="collapse-item" href="cards.html">Chống trộm</a>

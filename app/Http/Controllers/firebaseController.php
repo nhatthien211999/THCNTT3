@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 
+
 class FirebaseController extends Controller
 {
+    protected $url = 'https://thcntt3-982e7-default-rtdb.firebaseio.com/';
     public function __construct()
     {
         $this->middleware('auth');
@@ -21,13 +24,17 @@ class FirebaseController extends Controller
  
     public function switch(Request $request)
     {
+
         $location = $request->input('location');
         $route = $request->input('route');
         $factory = (new Factory())
-        ->withDatabaseUri('https://demohung-79e75-default-rtdb.firebaseio.com');    
+        ->withDatabaseUri($this->url);    
         $database   =   $factory->createDatabase(); 
         if($request->input('status')=='OFF'){
             $status='ON';
+            Device::create([
+                'device' => $location
+            ]);
         }else{
             $status='OFF';
         }
@@ -45,7 +52,7 @@ class FirebaseController extends Controller
         $location=$request->input('location');
         $route=$request->input('route');
         $factory = (new Factory())
-        ->withDatabaseUri('https://demohung-79e75-default-rtdb.firebaseio.com');    
+        ->withDatabaseUri($this->url);    
         $database   =   $factory->createDatabase();
         $id=auth()->user()->id;
         $updates = [
@@ -61,7 +68,7 @@ class FirebaseController extends Controller
         $location = $request->input('location');
         $route = $request->input('route');
         $factory = (new Factory())
-        ->withDatabaseUri('https://demohung-79e75-default-rtdb.firebaseio.com');    
+        ->withDatabaseUri($this->url);    
         $database   =   $factory->createDatabase(); 
         if($request->input('status')== 'true'){
             $status='false';

@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
 
 </head>
 
@@ -110,6 +112,10 @@
     <!-- Page level custom scripts -->
     <script src="/assets/js/demo/chart-area-demo.js"></script>
     <script src="/assets/js/demo/chart-pie-demo.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
 </body>
 

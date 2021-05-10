@@ -32,8 +32,9 @@ Route::get('admin/home','App\Http\Controllers\adminController@view');
 Route::get('admin/user','App\Http\Controllers\adminController@user');
 Route::get('admin/lightsUser/{id?}','App\Http\Controllers\adminController@lightsUser');
 
-
-
+Route::get('charts', 'ChartController@getIndex');
+Route::get('charts/api', 'ChartController@getApi');
+Route::get('data/api', 'ChartController@getData');
 
 Auth::routes();
 

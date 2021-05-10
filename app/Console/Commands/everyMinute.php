@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Kreait\Firebase\Factory;
-
+use App\Models\Device;
 
 class everyMinute extends Command
 {
@@ -14,6 +14,8 @@ class everyMinute extends Command
      * @var string
      */
     protected $signature = 'command:ScheduleSwitch';
+
+    protected $url = 'https://thcntt3-982e7-default-rtdb.firebaseio.com/';
 
     /**
      * The console command description.
@@ -40,7 +42,7 @@ class everyMinute extends Command
     public function handle()
     {
         $factory = (new Factory())
-        ->withDatabaseUri('https://demohung-79e75-default-rtdb.firebaseio.com');
+        ->withDatabaseUri($this->url);
 
         $database   =   $factory->createDatabase();      
 
@@ -65,9 +67,12 @@ class everyMinute extends Command
                     if($timefirebase==date("H:i")){
                         $updates = [
                             "$key/$key1/$key2/status"=> 'ON',
+                            
                         ];//tạo mảng với key là route để lưu vào firebase nếu chưa có thì nó sẽ thêm mới   
                         $database->getReference('') // this is the root reference
                         ->update($updates);
+                        Device::create([
+                        ]);
                     }
                
                 }
