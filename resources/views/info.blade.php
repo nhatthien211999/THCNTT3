@@ -30,6 +30,13 @@
       <div id="myfirstchart" style="height: 250px;"></div>
     </div>
 
+    <div class="col-md-12">
+      <div id="weather" style="background: #00CC33">
+        <div id="temp"></div>
+        <div id="img"></div>
+      </div>
+    </div>
+
     <div  id="data" class="col-lg-12"></div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -275,6 +282,25 @@ $(function(){
   });
   // Request initial data for the past 7 days:
   requestData(7, chart);
+
+
+  $.ajax({
+      type: "GET",
+      url: "http://api.openweathermap.org/data/2.5/weather?q=hanoi&appid=d513f9dc038d8e99c855b179c2defe7b"
+    })
+    .done(function( data ) {
+      // When the response to the AJAX request comes back render the chart with new data
+      console.log(data.weather[0].icon);
+      $("#temp").html("<b style='color:red'>Nhiệt độ hiện tại là: "+ Math.round(data.main.temp - 273.15) +"&#x2218;C - Độ ẩm không khí là: " +data.main.humidity+"%</b>");
+      $("#img").html("<img src=http://openweathermap.org/img/wn/" + data.weather[0].icon +  ".png />");
+    })
+    .fail(function(e) {
+      // If there is no communication between the server, show an error
+      alert( e );
+    });
+
+
+  
 });
 
 
